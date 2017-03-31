@@ -27,6 +27,12 @@
 <?php endif; ?>
 
 <?php // ACF Theme options ?>
+<?php if ( $footer_copyright = get_field( 'footer_copyright', 'option' ) ) : ?>
+	<div class="copy">
+		<p><?php echo str_replace( '[year]', date( 'Y' ), $footer_copyright ); ?></p>
+	</div>
+<?php endif; ?>
+
 <?php if ( have_rows( 'social_links', 'option' ) ) : ?>
 	<ul class="social-links">
 		<?php while ( have_rows( 'social_links', 'option' ) ) : the_row(); ?>
