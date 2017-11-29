@@ -37,11 +37,15 @@
 	<ul class="social-links">
 		<?php while ( have_rows( 'social_links', 'option' ) ) : the_row(); ?>
 			<?php
-				$link_class = get_sub_field( 'link_class' );
+				$icon_class = get_sub_field( 'icon_class' );
 				$link = get_sub_field( 'link' );
 			?>
-			<?php if ( $link_class && $link ) : ?>
-				<li><a href="<?php echo esc_url( $link ); ?>" class="icon-<?php echo sanitize_html_class( $link_class ); ?>" target="_blank"></a></li>
+			<?php if ( $icon_class && $link ) : ?>
+				<li>
+					<a href="<?php echo esc_url( $link ); ?>" target="_blank">
+						<span class="icon <?php echo sanitize_html_class( $icon_class ); ?>"></span>
+					</a>
+				</li>
 			<?php endif; ?>
 		<?php endwhile; ?>
 	</ul>
